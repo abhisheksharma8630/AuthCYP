@@ -1,10 +1,11 @@
 import React from "react";
-import { TeamComponent } from "./component";
+import { Cardx, EventComponent, TeamComponent } from "./component";
 
 export default function page (){
   return (
     <>
       <TeamComponent/>
+      <EventComponent/>
     </>
   );
 };

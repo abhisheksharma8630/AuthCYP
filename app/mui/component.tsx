@@ -1,4 +1,4 @@
-import { TextField } from "@mui/material"
+import { Card, TextField } from "@mui/material"
 import { Avatar, Box, Stack, Typography } from "@mui/material";
 import { Github } from "lucide-react";
 export const FormX = ()=>{
@@ -22,6 +22,43 @@ export const User = ({src,iconText}:{src:string,iconText:string})=>{
       );
 }
 
+export const Cardx = ({title,date,avatar}:{title:string,date:string,avatar:string})=>{
+  return (
+    <>
+    <Card sx={{maxWidth:250,p:2}}>
+        <Typography>{title}</Typography>
+        <Typography className="text-gray-600 text-sm my-1">{date}</Typography>
+        <Avatar src={avatar} alt={title}/>
+    </Card>
+    </>
+  )
+}
+
+export const EventComponent = ()=>{
+  return (<>
+    <Box sx={{px:22,py:10,bgcolor:"black", color:"white"}}>
+      <Stack
+        justifyContent={"space-evenly"}
+        direction="column"
+        sx={{ height: 500, px: 10 }}
+      >
+      <Typography className="text-5xl font-black">Events</Typography>
+      <h1 className="font-light text-xl w-2/3">Our team members speak at a variety of conferences, meetups, and other events across the world.</h1>
+        <Stack direction={"row"} justifyContent={"space-around"} sx={{mb:5}}>
+          <Cardx title="Bringing the power of AI into your editor with Github Copilot" date="12/12/2022" avatar="https://github.com/wattenberger.png"/>
+          <Cardx title="Bringing the power of AI into your editor with Github Copilot" date="12/12/2022" avatar="https://github.com/wattenberger.png"/>
+          <Cardx title="Bringing the power of AI into your editor with Github Copilot" date="12/12/2022" avatar="https://github.com/wattenberger.png"/>
+        </Stack>
+        <Stack direction={"row"} justifyContent={"space-around"}>
+          <Cardx title="Bringing the power of AI into your editor with Github Copilot" date="12/12/2022" avatar="https://github.com/wattenberger.png"/>
+          <Cardx title="Bringing the power of AI into your editor with Github Copilot" date="12/12/2022" avatar="https://github.com/wattenberger.png"/>
+          <Cardx title="Bringing the power of AI into your editor with Github Copilot" date="12/12/2022" avatar="https://github.com/wattenberger.png"/>
+        </Stack>
+      </Stack>
+    </Box>
+  </>)
+}
+
 export const TeamComponent = () => {
   return (
     <>
@@ -31,7 +68,7 @@ export const TeamComponent = () => {
       <Typography>Events</Typography>
       <Typography>Speakers</Typography>
     </Stack>
-    <Box sx={{px:22,pt:3}}>
+    <Box sx={{px:22,py:5}}>
       <Stack
         justifyContent={"space-evenly"}
         direction="column"
