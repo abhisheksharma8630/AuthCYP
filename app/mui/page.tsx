@@ -5,24 +5,24 @@ import {User} from "./component";
 const TeamComponent = () => {
   return (
     <>
-    <Box sx={{p:10}}>
-      <h1 className="font-light text-xl">Our team spans time zones, languages, and fields of expertise.</h1>
+    <Box sx={{px:10}}>
       <Stack
         justifyContent={"space-evenly"}
         direction="column"
-        sx={{ height: 500, p: 10 }}
+        sx={{ height: 500, px: 10 }}
       >
-        <Stack direction={"row"} justifyContent={"space-evenly"}>
-          <User src="https://github.com/xalili.png" />
-          <User src="https://github.com/wattenberger.png" />
-          <User src="https://github.com/colebemis.png" />
-          <User src="https://github.com/davidslater.png" />
+      <h1 className="font-light text-xl">Our team spans time zones, languages, and fields of expertise.</h1>
+        <Stack direction={"row"} justifyContent={"space-around"}>
+          <User src="https://github.com/xalili.png" iconText="xalili"/>
+          <User src="https://github.com/wattenberger.png" iconText="wattenberger"/>
+          <User src="https://github.com/colebemis.png" iconText="colebemis" />
+          <User src="https://github.com/davidslater.png" iconText="davidslater" />
         </Stack>
-        <Stack direction={"row"} justifyContent={"space-evenly"}>
-          <User src="https://github.com/drifkin.png" />
-          <User src="https://github.com/dsyme.png" />
-          <User src="https://github.com/eaftan.png" />
-          <User src="https://github.com/ikaliam.png" />
+        <Stack direction={"row"} justifyContent={"space-around"}>
+          <User src="https://github.com/drifkin.png" iconText="drifkin"/>
+          <User src="https://github.com/dsyme.png" iconText="drifkin"/>
+          <User src="https://github.com/eaftan.png" iconText="drifkin"/>
+          <User src="https://github.com/ikaliam.png" iconText="drifkin" />
         </Stack>
       </Stack>
     </Box>
