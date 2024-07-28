@@ -9,7 +9,8 @@ import { url } from 'inspector';
 const pages = [
   '/',
   '/imloginpage',
-  '/impublic'
+  '/impublic',
+  '/mui'
 ]
 
 
