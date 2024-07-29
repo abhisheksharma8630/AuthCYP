@@ -16,7 +16,7 @@
   }
 }
 
-body {
+/* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -24,13 +24,4 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
-
-body {
-  background: white !important;
-  color: black !important;
-  padding-top: 2em !important;
-}
-.padding {
-  padding: 5em;
-}
+} */
