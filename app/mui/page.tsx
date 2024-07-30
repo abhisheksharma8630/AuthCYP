@@ -1,19 +1,15 @@
 "use client"
 import React from "react";
-import { Cardx, EventComponent, TeamComponent } from "./component";
+import { Cardx, EventComponent, PaymentComponent, TeamComponent } from "./component";
 import { Box, Stack, Typography } from "@mui/material";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import { GeistSans } from "geist/font/sans";
 
 const theme = createTheme({
-  typography: {
-    fontFamily: '"Segoe UI"',
-    h1: {
-      fontFamily: '"Segoe UI"', // Customize the font for specific variants
-    },
-    body1: {
-      fontFamily: '"Segoe UI"', // Customize the font for specific variants
-    },
-  },
+  typography:{
+    fontFamily: GeistSans.style.fontFamily,
+    
+  }
 });
 
 export default function page() {
@@ -27,8 +23,10 @@ export default function page() {
         <Typography>Events</Typography>
         <Typography>Speakers</Typography>
       </Stack> */}
-      <TeamComponent />
+      {/* <TeamComponent />
       <EventComponent/>
+      <PaymentComponent/> */}
+
     </ThemeProvider>
     </>
   );
