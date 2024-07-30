@@ -1,10 +1,27 @@
-import { Card, Grid, TextField, useTheme } from "@mui/material";
+import {
+  Card,
+  CardMedia,
+  Grid,
+  styled,
+  TextField,
+  useTheme,
+} from "@mui/material";
 import { Avatar, Box, Stack, Typography } from "@mui/material";
 import { Check, CircleCheck, Github } from "lucide-react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import KeyboardArrowUp from "@mui/icons-material/KeyboardArrowUp";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import AddIcCallIcon from "@mui/icons-material/AddIcCall";
+import EmailIcon from "@mui/icons-material/Email";
+
 export const FormX = () => {
   return (
     <>
@@ -267,10 +284,10 @@ export const PaymentComponent = () => {
               height: 40,
               width: 40,
               backgroundColor: "#abf7b1",
-              color:"green"
+              color: "green",
             }}
           >
-            <CheckCircleIcon fontSize="medium"/>
+            <CheckCircleIcon fontSize="medium" />
           </Box>
           <Typography variant="h6">Payment Success!</Typography>
           <Typography variant="h4" sx={{ fontWeight: "bold" }}>
@@ -375,6 +392,297 @@ export const PaymentComponent = () => {
               <Typography>Contact our support team</Typography>
             </Grid>
             <KeyboardArrowRightIcon />
+          </Grid>
+        </Box>
+      </Box>
+    </>
+  );
+};
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  "&:nth-of-type(odd)": {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  "&:last-child td, &:last-child th": {
+    border: 0,
+  },
+}));
+
+function createData(
+  itemName: string,
+  quantity: number,
+  unit: string,
+  price: number,
+  gst: number,
+  amount: number
+) {
+  return { itemName, quantity, unit, price, gst, amount };
+}
+
+const rows = [
+  createData(
+    "10GB Web Space, 05Gbps Bandwidth, MySQL Database, SSL Annual Charge,Subdomains for All Courses",
+    1,
+    "Nos",
+    17000,
+    3060,
+    20060
+  ),
+];
+
+export const InvoiceComponent = () => {
+  return (
+    <>
+      <Box
+        sx={{
+          width: "793.7px",
+          height: "1122.5px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Box
+          sx={{
+            height: "35%",
+            display: "flex",
+            justifyContent: "space-evenly",
+            alignItems: "center",
+            background: "linear-gradient(45deg, #FE6B8B, #FF8E53)",
+          }}
+        >
+          <Grid sx={{ height: "60%", width: "30%" }}>
+            <Stack direction="row" alignItems={"center"} spacing={0.5}>
+              <CardMedia
+                component="img"
+                alt="Company Logo"
+                sx={{ height: 70, width: 70 }}
+                src="https://brand.udyogx.in/wp-content/uploads/2022/12/image-1-150x150.png"
+              />
+              <Typography sx={{ fontWeight: 600 }}>
+                UdyogX Technologies Private Limited
+              </Typography>
+            </Stack>
+            <Stack mt={2}>
+              <Typography
+                variant="h3"
+                fontWeight={700}
+                textTransform={"uppercase"}
+              >
+                Invoice
+              </Typography>
+              <Typography>UDYOGX/2023-24/2</Typography>
+            </Stack>
+          </Grid>
+          <Grid
+            sx={{
+              height: "60%",
+              width: "30%",
+              display: "flex",
+              justifyContent: "space-between",
+              flexDirection: "column",
+            }}
+          >
+            <Box>
+              <Typography fontWeight={600}>Date Information</Typography>
+              <Typography fontSize={"small"}>10/11/2024</Typography>
+            </Box>
+            <Box>
+              <Typography fontWeight={600}>Invoice Number</Typography>
+              <Typography fontSize={"small"}>UDYOGX/2023-24/2</Typography>
+            </Box>
+            <Box>
+              <Typography fontWeight={600} textTransform={"uppercase"}>
+                Invoice To
+              </Typography>
+              <Typography fontSize={"small"}>
+                Rajkiya Engineering College, Kannauj Aher, Tirwa, Kannauj, Uttar
+                Pradesh
+              </Typography>
+            </Box>
+            <Typography>Total Due: $500.0</Typography>
+          </Grid>
+        </Box>
+        <Box
+          sx={{
+            position: "relative",
+            width: "90%",
+            borderRadius: "1rem 1rem 0 0",
+            top: "-60px",
+          }}
+        >
+          <TableContainer component={Paper}>
+            <Table sx={{}} aria-label="customized table">
+              <TableHead>
+                <TableRow>
+                  <StyledTableCell>Item Name</StyledTableCell>
+                  <StyledTableCell align="right">Quantity</StyledTableCell>
+                  <StyledTableCell align="right">Unit</StyledTableCell>
+                  <StyledTableCell align="right">Price/Unit</StyledTableCell>
+                  <StyledTableCell align="right">GST</StyledTableCell>
+                  <StyledTableCell align="right">Amount</StyledTableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {rows.map((row, idx) => (
+                  <StyledTableRow key={row.itemName}>
+                    <StyledTableCell component="th" scope="row">
+                      {idx + 1 + ". " + row.itemName}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">
+                      {row.quantity}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">{row.unit}</StyledTableCell>
+                    <StyledTableCell align="right">
+                      Rs. {row.price}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">
+                      Rs. {row.gst}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">
+                      Rs. {row.amount}
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Box>
+        <Box
+          sx={{
+            height: "35%",
+            width: "90%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            p: 2,
+            boxShadow: "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px",
+            borderRadius: "0 0 1rem 1rem",
+          }}
+        >
+          <Grid
+            sx={{
+              height: "80%",
+              width: "50%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
+            <Box>
+              <Typography variant="h6" fontWeight={600}>
+                Thank you for your business
+              </Typography>
+              <Stack direction={"row"} spacing={2}>
+                <Typography
+                  fontSize={"small"}
+                  sx={{ display: "flex", alignItems: "center" }}
+                >
+                  <AddIcCallIcon fontSize="small" /> +91 8979744113
+                </Typography>
+                <Typography
+                  fontSize={"small"}
+                  sx={{ display: "flex", alignItems: "center" }}
+                >
+                  <EmailIcon fontSize="small" /> udyogx@gmail.com
+                </Typography>
+              </Stack>
+            </Box>
+            <Box>
+              <Typography
+                variant="h6"
+                fontWeight={600}
+                textTransform={"uppercase"}
+              >
+                Payment Method
+              </Typography>
+              <Grid container justifyContent={"space-between"}>
+                <Typography>Bank Account</Typography>
+                <Typography sx={{ fontWeight: 600 }}>
+                  922020051711518
+                </Typography>
+              </Grid>
+              <Grid container justifyContent={"space-between"}>
+                <Typography>Bank Full Name</Typography>
+                <Typography sx={{ fontWeight: 600 }}>
+                  AXIS BANK, MATHURA
+                </Typography>
+              </Grid>
+              <Grid container justifyContent={"space-between"}>
+                <Typography>Bank Code</Typography>
+                <Typography sx={{ fontWeight: 600 }}>UTIB0000359</Typography>
+              </Grid>
+            </Box>
+            <Box>
+              <Typography variant="h6" fontWeight={600}>
+                Terms and Conditions
+              </Typography>
+              <Typography>
+                Balance Due Net 15 Days.<br/> Please pay by Cheque or Internet
+                Banking.
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid
+            sx={{
+              height: "80%",
+              width: "45%",
+              display: "flex",
+              flexDirection: "column",
+              gap: 2,
+            }}
+          >
+            <Stack
+              direction={"row"}
+              alignItems={"center"}
+              justifyContent={"space-between"}
+              px={3}
+            >
+              <Typography fontWeight={600} width={100}>
+                Subtotal
+              </Typography>
+              :<Typography width={100}>Rs. 17000</Typography>
+            </Stack>
+            <Stack
+              direction={"row"}
+              alignItems={"center"}
+              justifyContent={"space-between"}
+              px={3}
+            >
+              <Typography fontWeight={600} width={100}>
+                Tax
+              </Typography>
+              :<Typography width={100}>Rs. 3060</Typography>
+            </Stack>
+            <Stack
+              direction={"row"}
+              sx={{
+                background: "linear-gradient(45deg, #FE6B8B, #FF8E53)",
+                borderRadius: "0.5rem",
+                px: 3,
+              }}
+              alignItems={"center"}
+              justifyContent={"space-between"}
+            >
+              <Typography variant="h6" fontWeight={600} width={100}>
+                Total
+              </Typography>
+              :<Typography width={100}>Rs. 20060</Typography>
+            </Stack>
+            <Typography fontWeight={700} align="center" mt={10}>
+              Authorised Signatory
+            </Typography>
           </Grid>
         </Box>
       </Box>

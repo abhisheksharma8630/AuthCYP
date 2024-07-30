@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import { Cardx, EventComponent, PaymentComponent, TeamComponent } from "./component";
+import { Cardx, EventComponent, InvoiceComponent, PaymentComponent, TeamComponent } from "./component";
 import { Box, Stack, Typography } from "@mui/material";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import { GeistSans } from "geist/font/sans";
@@ -8,7 +8,6 @@ import { GeistSans } from "geist/font/sans";
 const theme = createTheme({
   typography:{
     fontFamily: GeistSans.style.fontFamily,
-    
   }
 });
 
@@ -23,10 +22,10 @@ export default function page() {
         <Typography>Events</Typography>
         <Typography>Speakers</Typography>
       </Stack> */}
-      {/* <TeamComponent />
+      <TeamComponent />
       <EventComponent/>
-      <PaymentComponent/> */}
-
+      <PaymentComponent/>
+      <InvoiceComponent/>
     </ThemeProvider>
     </>
   );
